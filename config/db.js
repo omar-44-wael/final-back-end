@@ -1,20 +1,15 @@
-
 const mysql = require('mysql2');
 
-
-const connection = mysql.createConnection({
-  host:     'localhost',
-  user:     'root',       
-  password: '',           
-  database: 'ecommerce_db'
-});
+const connection = mysql.createConnection(
+  'mysql://root:GiCQHvmOcMcrChyAeCHBBTodiKjsARqU@interchange.proxy.rlwy.net:19249/railway'
+);
 
 connection.connect((err) => {
   if (err) {
-    console.error('❌ MySQL connection failed:', err.message);
-    return;
+    console.log(err);
+  } else {
+    console.log("Connected to Railway DB");
   }
-  console.log('✅ Connected to MySQL database.');
 });
 
 module.exports = connection;
